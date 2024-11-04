@@ -1,5 +1,5 @@
-const baseUrl = '/ViruMap/submit-steps';
-const welcomeUrl = '/ViruMap/welcome';
+const baseUrl = '/virumap/submit-steps';
+const welcomeUrl = '/virumap/welcome';
 
 const baseComponentPath = 'SubmitSteps';
 const middleComponentPathRecording = 'RecordingsSteps';
@@ -15,7 +15,7 @@ function getCoughSteps(storeKey: string): Wizard.Step[] {
       componentPath: `${baseComponentPath}/${middleComponentPathRecording}/Introduction`,
       props: {
         storeKey,
-        previousStep: '/ViruMap/welcome/step-5',
+        previousStep: '/virumap/welcome/step-5',
         nextStep: `${baseUrl}/step-listen/cough`,
         otherSteps: {
           manualUploadStep: `${baseUrl}/step-manual-upload/cough`,
@@ -243,7 +243,7 @@ export function welcomeStepsDefinitions(storeKey: string): Wizard.Step[] {
       props: {
         storeKey,
         previousStep: `${welcomeUrl}/step-3`,
-        nextStep: '/ViruMap/submit-steps/step-record/cough',
+        nextStep: '/virumap/submit-steps/step-record/cough',
         // nextStep: '/submit-steps/step-record/cough',
       },
     },

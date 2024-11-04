@@ -38,14 +38,14 @@ const App = () => {
         <Header />
         <FullWidth style={{ flex: 1 }}>
           <Switch>
-            <Route path="/ViruMap/welcome">
+            <Route path="/virumap/welcome">
               <AsyncLoad key="Welcome" container="Welcome" />
             </Route>
-            <Route path="/ViruMap/submit-steps">
+            <Route path="/virumap/submit-steps">
               <AsyncLoad key="SubmitSteps" container="SubmitSteps" />
             </Route>
-            <Redirect exact from="/" to={{ pathname: '/ViruMap/welcome', search }} />
-            <Redirect exact from="/ViruMap" to={{ pathname: '/ViruMap/welcome', search }} />
+            <Redirect exact from="/" to={{ pathname: '/virumap/welcome', search }} />
+            <Redirect exact from="/virumap" to={{ pathname: '/virumap/welcome', search }} />
             <Route>
               <div>404 Page</div>
             </Route>

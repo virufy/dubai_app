@@ -18,7 +18,7 @@ const StoreKey = 'welcome';
 createStore({
   [StoreKey]: {},
 }, {
-  name: 'ViruMap-wizard',
+  name: 'virumap-wizard',
 });
 
 const stepsWithoutDots = getWelcomeStepsWithoutDots(StoreKey);

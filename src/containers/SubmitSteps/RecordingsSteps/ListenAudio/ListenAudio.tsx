@@ -178,11 +178,11 @@ const ListenAudio = ({
     setActiveStep(false);
     if (location.state && location.state.from) {
       if (isCoughLogic) {
-        history.push('/ViruMap/submit-steps/step-record/cough', { isShortAudioCollection });
+        history.push('/virumap/submit-steps/step-record/cough', { isShortAudioCollection });
       } else if (isBreathLogic) {
-        history.push('/ViruMap/submit-steps/step-record/breath');
+        history.push('/virumap/submit-steps/step-record/breath');
       } else {
-        history.push('/ViruMap/submit-steps/step-record/speech');
+        history.push('/virumap/submit-steps/step-record/speech');
       }
     } else if (previousStep) {
       history.push(previousStep);

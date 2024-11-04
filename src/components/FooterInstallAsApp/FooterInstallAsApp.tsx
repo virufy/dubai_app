@@ -31,7 +31,7 @@ const FooterInstallAsApp = () => {
       }
     }
   }, [handlePrompt, setIsInstalled]);
-  if (location.pathname !== '/ViruMap/welcome') return null;
+  if (location.pathname !== '/virumap/welcome') return null;
 
   return (
     <>

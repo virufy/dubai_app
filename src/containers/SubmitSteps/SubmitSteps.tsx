@@ -28,7 +28,7 @@ createStore({
     },
   },
 }, {
-  name: 'ViruMap-wizard',
+  name: 'virumap-wizard',
 });
 
 const SubmitSteps = () => {
@@ -90,7 +90,7 @@ const SubmitSteps = () => {
 
     const problemRoute = checkFileConsistencyProblem(state);
     if (problemRoute) {
-      history.push(`/ViruMap/${StoreKey}${problemRoute}`);
+      history.push(`/virumap/${StoreKey}${problemRoute}`);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

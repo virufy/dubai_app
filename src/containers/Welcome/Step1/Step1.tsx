@@ -187,7 +187,7 @@ const Step1 = (p: Wizard.StepProps) => {
 
   useEffect(() => {
     const localStorageCountry = localStorage.getItem('countryResult');
-    const virufyWizard = localStorage.getItem('ViruMap-wizard');
+    const virufyWizard = localStorage.getItem('virumap-wizard');
     if (virufyWizard) {
       const parsedVirufyWizard = JSON.parse(virufyWizard);
       setValue('country', parsedVirufyWizard.welcome.country);
