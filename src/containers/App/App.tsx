@@ -44,6 +44,7 @@ const App = () => {
             <Route path="/ViruMap/submit-steps">
               <AsyncLoad key="SubmitSteps" container="SubmitSteps" />
             </Route>
+            <Redirect exact from="/" to={{ pathname: '/ViruMap/welcome', search }} />
             <Redirect exact from="/ViruMap" to={{ pathname: '/ViruMap/welcome', search }} />
             <Route>
               <div>404 Page</div>
