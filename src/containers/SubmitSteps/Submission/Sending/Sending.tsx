@@ -17,9 +17,6 @@ import { ImageProcessing, TextErrorContainer} from '../style';
 
 interface StructuredData {
   patientId: string;
-  country: string;
-  region: string;
-  language: string;
   zipcode: string;
   sick: string;
 }
@@ -48,9 +45,6 @@ const Sending = (p: Wizard.StepProps) => {
     try {
       const structuredData: StructuredData = {
         patientId: state['submit-steps']?.patientId,
-        country: state['welcome']?.country,
-        region: state['welcome']?.region,
-        language: state['welcome']?.language,
         zipcode: state['submit-steps']?.zipcode,
         sick: state['submit-steps']?.sick,
       };
@@ -102,9 +96,6 @@ const Sending = (p: Wizard.StepProps) => {
     console.log('MOCK: sending to backend');
     console.log(
       "patientId", state['submit-steps']?.patientId,
-      "country",state['welcome']?.country, 
-      "region",state['welcome']?.region, 
-      "language",state['welcome']?.language,
       "zipcode",state['submit-steps']?.zipcode, 
       "sick",state['submit-steps']?.sick);
     setTimeout(() => {
@@ -119,8 +110,8 @@ const Sending = (p: Wizard.StepProps) => {
     setTitle('');
     setType('tertiary');
     setDoGoBack(null);
-    // sendDataToBackend();
-    mocksendDataToBackend();
+    sendDataToBackend();
+    // mocksendDataToBackend();
   }, [handleDoBack, setDoGoBack, setTitle, setType, sendDataToBackend, mocksendDataToBackend]);
 
   return (

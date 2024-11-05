@@ -90,7 +90,7 @@ function getSpeechSteps(storeKey: string) {
       props: {
         storeKey,
         previousStep: `${baseUrl}/step-record/speech`,
-        nextStep: `${baseUrl}/questionary/step3`,
+        nextStep: ``,
         metadata: {
           currentLogic: recordYourSpeechLogic,
         },
@@ -101,9 +101,9 @@ function getSpeechSteps(storeKey: string) {
 
 function getQuestionarySteps(storeKey: string): Wizard.Step[] {
   const baseMetadata = {
-    total: 4,
-    progressCurrent: 4,
-    progressTotal: 4,
+    total: 1,
+    progressCurrent: 1,
+    progressTotal: 1,
   };
   return [
     {
@@ -118,87 +118,7 @@ function getQuestionarySteps(storeKey: string): Wizard.Step[] {
           ...baseMetadata,
         },
       },
-    },
-    {
-      path: '/questionary/step2',
-      componentPath: `${baseComponentPath}/${middleComponentPathQuestionary}/Step2`,
-      props: {
-        storeKey,
-        previousStep: `${baseUrl}/questionary/step1`,
-        nextStep: `${baseUrl}/questionary/step6`,
-        metadata: {
-          current: 2,
-          ...baseMetadata,
-        },
-      },
-    },
-    {
-      path: '/questionary/step3',
-      componentPath: `${baseComponentPath}/${middleComponentPathQuestionary}/Step3`,
-      props: {
-        storeKey,
-        previousStep: `${baseUrl}/step-listen/speech`,
-        nextStep: `${baseUrl}/questionary/step4`,
-        metadata: {
-          current: 3,
-          ...baseMetadata,
-        },
-      },
-    },
-    {
-      path: '/questionary/step4',
-      componentPath: `${baseComponentPath}/${middleComponentPathQuestionary}/Step4`,
-      props: {
-        storeKey,
-        previousStep: `${baseUrl}/questionary/step3`,
-        nextStep: `${baseUrl}/questionary/step5a`,
-        metadata: {
-          current: 4,
-          ...baseMetadata,
-        },
-      },
-    },
-    {
-      path: '/questionary/step5a',
-      componentPath: `${baseComponentPath}/${middleComponentPathQuestionary}/Step5a`,
-      props: {
-        storeKey,
-        previousStep: `${baseUrl}/step-listen/breath`,
-        nextStep: `${baseUrl}/thank-you`,
-        otherSteps: {
-          covidSymptomsStep: `${baseUrl}/questionary/step5b`,
-        },
-        metadata: {
-          current: 4,
-          ...baseMetadata,
-        },
-      },
-    },
-    {
-      path: '/questionary/step5b',
-      componentPath: `${baseComponentPath}/${middleComponentPathQuestionary}/Step5b`,
-      props: {
-        storeKey,
-        previousStep: `${baseUrl}/questionary/step5a`,
-        nextStep: `${baseUrl}/thank-you`,
-        metadata: {
-          ...baseMetadata,
-        },
-      },
-    },
-    {
-      path: '/questionary/step6',
-      componentPath: `${baseComponentPath}/${middleComponentPathQuestionary}/Step6`,
-      props: {
-        storeKey,
-        previousStep: `${baseUrl}/questionary/step2`,
-        nextStep: `${welcomeUrl}/step-5`,
-        metadata: {
-          current: 3,
-          ...baseMetadata,
-        },
-      },
-    },
+    }
   ];
 }
 

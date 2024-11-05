@@ -289,7 +289,7 @@
   "thankyou": {
       "title": "Thank you for submitting!",
       "paragraph1": "Your cough donation brings Virufy one step closer to changing the world.",
-      "paragraph2": "Your unique submission ID::<br/><strong>{{submissionId}}</strong>",
+      "paragraph2": "Your unique submission ID:<br/><strong>{{submissionId}}</strong>",
       "paragraph3": "Make sure to safeguard this submission ID, as you will need it to request Virufy to delete your anonymized data in the future.<br><br>If you later develop symptoms such as cough, fever, or shortness of breath, please come back to resubmit your latest cough sounds.",
       "stayInTouch" : "Stay in touch!",
       "followUs" : "Follow Us",
