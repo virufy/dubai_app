@@ -20,9 +20,9 @@ import useHeaderContext from 'hooks/useHeaderContext';
 import { scrollToTop } from 'helper/scrollHelper';
 
 // Components
-import ProgressIndicator from 'components/ProgressIndicator';
 import WizardButtons from 'components/WizardButtons';
 import OptionList from 'components/OptionList';
+import ProgressIndicator from 'components/ProgressIndicator';
 
 // Icons
 import { ReactComponent as ExclamationSVG } from 'assets/icons/exclamationCircle.svg';
@@ -30,23 +30,18 @@ import { ReactComponent as ExclamationSVG } from 'assets/icons/exclamationCircle
 // Styles
 import { TextErrorContainer } from 'containers/Welcome/style';
 import {
-  QuestionText, MainContainer, QuestionInput,
+  QuestionText, MainContainer, QuestionAllApply
 } from '../style';
 
 const schema = Yup.object({
-  biologicalSex: Yup.string().required('biologicalSexRequired'),
-  ageGroup: Yup.string().required('ageGroupRequired').test('age-invalid', '', value => {
-    let result = true;
-    if (value && !value.match(/^[0-9]+$/)) {
-      result = false;
-    }
-    return result;
-  }),
+  sick: Yup.string().required('sickStateRequired'),
+  currentMedicalCondition: Yup.array().of(Yup.string().required()).required('currentMedicalConditionRequired').default([])
+  .test('SelecteOne', 'Select one', v => !(!!v && v.length > 1 && (v.includes('none')))),
 }).defined();
 
 type Step1Type = Yup.InferType<typeof schema>;
 
-const Step1 = ({
+const Step2 = ({
   previousStep,
   nextStep,
   storeKey,
@@ -115,12 +110,12 @@ const Step1 = ({
         totalSteps={metadata?.total}
         progressBar
       />
-      <QuestionText first>
-        {t('questionary:biologicalSex.question')}
+      <QuestionText first hasNote>
+        {t('questionary:illQuestion.question')}
       </QuestionText>
       <Controller
         control={control}
-        name="biologicalSex"
+        name="sick"
         defaultValue=""
         render={({ onChange, value }) => (
           <OptionList
@@ -129,16 +124,17 @@ const Step1 = ({
             onChange={v => onChange(v.selected[0])}
             items={[
               {
-                value: 'male',
-                label: t('questionary:biologicalSex.options.male'),
+                value: 'yes',
+                label: t('questionary:illQuestion.options.yes'),
               },
               {
-                value: 'female',
-                label: t('questionary:biologicalSex.options.female'),
+                value: 'no',
+                label: t('questionary:illQuestion.options.no'),
               },
+
               {
-                value: 'notToSay',
-                label: t('questionary:biologicalSex.options.notToSay'),
+                value: 'unsure',
+                label: t('questionary:illQuestion.options.unsure'),
               },
             ]}
           />
@@ -147,44 +143,87 @@ const Step1 = ({
       {/* Bottom Buttons */}
       <ErrorMessage
         errors={errors}
-        name="biologicalSex"
-        render={() => (
+        name="sick"
+        render={({ message }) => (
           <TextErrorContainer>
             <ExclamationSVG />
-            {t('questionary:biologicalSex.error', 'Please select an option')}
+            {t(`main:${message}`, 'Please select an option')}
           </TextErrorContainer>
         )}
       />
 
-      <QuestionText extraSpace>{t('questionary:ageGroup.question')}</QuestionText>
+      <QuestionText extraSpace hasNote> {t('questionary:medical.question', 'Which of the below medical conditions do you currently have?')}<br/>
+        <QuestionAllApply>{t('questionary:medical.allThatApply')}</QuestionAllApply>
+      </QuestionText>
 
       <Controller
         control={control}
-        name="ageGroup"
-        defaultValue=""
-        render={({ onChange, value, name }) => (
-          <QuestionInput
-            name={name}
-            value={value}
-            onChange={onChange}
-            type="number"
-            placeholder={t('questionary:ageGroup.placeholder', 'Please enter your age')}
-            autoComplete="Off"
+        name="currentMedicalCondition"
+        defaultValue={[]}
+        render={({ onChange, value }) => (
+          <OptionList
+            isCheckbox
+            enableOther={true}
+            otherPlaceholder= {t('questionary:medical.otherPlaceholder', 'Please specify')}
+            value={{ selected: value || [] }}  
+            onChange={(v) => onChange(v.selected || [])}
+            items={[
+              {
+                value: 'none',
+                label: t('questionary:medical.options.none'),
+              },
+              {
+                value: 'influenzaA',
+                label: t('questionary:medical.options.influenza'),
+              },
+              {
+                value: 'covid',
+                label: t('questionary:medical.options.covid'),
+              },
+              {
+                value: 'cold',
+                label: t('questionary:medical.options.cold'),
+              }, 
+              {
+                value: 'pneumonia',
+                label: t('questionary:medical.options.pneumonia'),
+              },
+              {
+                value: 'bronchitis',
+                label: t('questionary:medical.options.bronchitis'),
+              },
+              {
+                value: 'tuberculosis',
+                label: t('questionary:medical.options.tuberculosis'),
+              },
+              {
+                value: 'copdEmphysema',
+                label: t('questionary:medical.options.emphysema'),
+              },
+              {
+                value: 'asthma',
+                label: t('questionary:medical.options.asthma'),
+              },
+              {
+                value: 'other',
+                label: t('questionary:medical.options.other'),
+              },
+            ]}
+            excludableValues={['none']}
           />
         )}
       />
       {/* Bottom Buttons */}
       <ErrorMessage
         errors={errors}
-        name="ageGroup"
-        render={() => (
+        name="currentMedicalCondition"
+        render={({ message }) => (
           <TextErrorContainer>
             <ExclamationSVG />
-            {t('questionary:ageGroup.placeholder', 'Please enter your age')}
+            {t(`main:${message}`, 'Please select at least one option')}
           </TextErrorContainer>
         )}
       />
-      {/* <QuestionNote style={{marginTop:'30px'}}>※ここでお尋ねする質問は、初回のみにさせていただきます。</QuestionNote> */}
 
       {activeStep && (
         <Portal>
@@ -200,4 +239,4 @@ const Step1 = ({
   );
 };
 
-export default React.memo(Step1);
+export default React.memo(Step2);

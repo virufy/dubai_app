@@ -33,8 +33,6 @@ import {
   LogoWhiteBG,
 } from '../style';
 
-
-
 const languageList = ['English','Arabic']
 const languageOptions = languageList.map(language => ({ label: language, value: language }));
 

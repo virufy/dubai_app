@@ -17,8 +17,12 @@ import { ImageProcessing, TextErrorContainer} from '../style';
 
 interface StructuredData {
   patientId: string;
-  zipcode: string;
   sick: string;
+  gender: string;
+  age: number;
+  conditions: string[]; 
+  latitude: number;
+  longitude: number;
 }
 
 const apiUrl = process.env.REACT_APP_API_URL!;
@@ -45,18 +49,18 @@ const Sending = (p: Wizard.StepProps) => {
     try {
       const structuredData: StructuredData = {
         patientId: state['submit-steps']?.patientId,
-        zipcode: state['submit-steps']?.zipcode,
+        gender: state['submit-steps']?.biologicalSex,
+        age: state['submit-steps']?.ageGroup,
         sick: state['submit-steps']?.sick,
+        conditions: state['submit-steps']?.currentMedicalCondition,
+        latitude: state['submit-steps']?.location['lat'],
+        longitude: state['submit-steps']?.location['lng'],
       };
       // Retrieve files from the state (either recorded or uploaded)
       const coughFile = state['submit-steps']?.recordYourCough?.recordingFile || state['submit-steps']?.recordYourCough?.uploadedFile;
       
       if ((coughFile instanceof Blob)) {
         const coughBase64 = await toBase64(coughFile);
-        console.log(JSON.stringify({
-          structuredData: structuredData,
-          coughFile: coughBase64,
-        }));
         const response = await fetch(apiUrl, {
           method: 'POST',
           headers: {
@@ -94,10 +98,16 @@ const Sending = (p: Wizard.StepProps) => {
 
   const mocksendDataToBackend = useCallback(() => {
     console.log('MOCK: sending to backend');
+    console.log(state);
     console.log(
       "patientId", state['submit-steps']?.patientId,
-      "zipcode",state['submit-steps']?.zipcode, 
-      "sick",state['submit-steps']?.sick);
+      "Conditions",state['submit-steps']?.currentMedicalCondition, 
+      "location",state['submit-steps']?.location['lat'], 
+      "location",state['submit-steps']?.location['lng'], 
+      "sick",state['submit-steps']?.sick,
+      "gender",state['submit-steps']?.biologicalSex,
+      "age",state['submit-steps']?.ageGroup,
+    );
     setTimeout(() => {
       if (p.nextStep) {
         history.push(p.nextStep);

@@ -59,12 +59,12 @@ export const WomanWithPhone = styled(WomanWithPhoneSvg)`
 `;
 
 export const QuestionAllApply = styled.span`
-  color: ${props => props.theme.colors.mineShaft_50};
+  color: 808080;
   font-family: "Source Sans Pro";
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 400;
-  margin-left: 5px;
+  margin-top:10px;
 `;
 
 export const QuestionText = styled.p<{extraSpace?: boolean; first?: boolean; hasNote?: boolean; rare?: boolean; bold?: boolean; }>`
@@ -129,4 +129,13 @@ export const QuestionInput = styled.input`
   @media screen and (${props => props.theme.breakpoints.tablet}){
     max-width: 470px;
     }
+`;
+
+export const MapContainer = styled.div`
+  height: 400px;
+  width: 100%;
+  max-width: 470px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
 `;

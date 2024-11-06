@@ -15,7 +15,7 @@ function getCoughSteps(storeKey: string): Wizard.Step[] {
       componentPath: `${baseComponentPath}/${middleComponentPathRecording}/Introduction`,
       props: {
         storeKey,
-        previousStep: '/virumap/welcome/step-5',
+        previousStep: '/virumap/welcome/step-4',
         nextStep: `${baseUrl}/step-listen/cough`,
         otherSteps: {
           manualUploadStep: `${baseUrl}/step-manual-upload/cough`,
@@ -101,9 +101,9 @@ function getSpeechSteps(storeKey: string) {
 
 function getQuestionarySteps(storeKey: string): Wizard.Step[] {
   const baseMetadata = {
-    total: 1,
-    progressCurrent: 1,
-    progressTotal: 1,
+    total: 3,
+    progressCurrent: 3,
+    progressTotal: 3,
   };
   return [
     {
@@ -112,9 +112,35 @@ function getQuestionarySteps(storeKey: string): Wizard.Step[] {
       props: {
         storeKey,
         previousStep: `${baseUrl}/step-listen/cough`, 
-        nextStep: `${baseUrl}/sending`,
+        nextStep: `${baseUrl}/questionary/step2`,
         metadata: {
           current: 1,
+          ...baseMetadata,
+        },
+      },
+    },
+    {
+      path: '/questionary/step2',
+      componentPath: `${baseComponentPath}/${middleComponentPathQuestionary}/Step2`,
+      props: {
+        storeKey,
+        previousStep: `${baseUrl}/questionary/step1`, 
+        nextStep: `${baseUrl}/questionary/step3`,
+        metadata: {
+          current: 2,
+          ...baseMetadata,
+        },
+      },
+    },
+    {
+      path: '/questionary/step3',
+      componentPath: `${baseComponentPath}/${middleComponentPathQuestionary}/Step3`,
+      props: {
+        storeKey,
+        previousStep: `${baseUrl}/questionary/step2`, 
+        nextStep: `${baseUrl}/sending`,
+        metadata: {
+          current: 3,
           ...baseMetadata,
         },
       },
@@ -183,7 +209,7 @@ export default function stepsDefinition(storeKey: string) {
       componentPath: `${baseComponentPath}/${middleComponentPathSubmission}/Sending`,
       props: {
         storeKey,
-        previousStep: `${baseUrl}/questionary/step1`, 
+        previousStep: `${baseUrl}/questionary/step2`, 
         nextStep: `${baseUrl}/thank-you`,
       },
     },

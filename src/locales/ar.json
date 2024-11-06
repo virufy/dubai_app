@@ -266,8 +266,21 @@
       "next": "تحميل الصوت",
       "retake": "سجل مرة أخرى"
   },
-  "questionary": {
-      "title" : "الاستبيان",
+"questionary": {
+      "title" : "استبيان",
+      "biologicalSex":{
+        "question" : "يرجى تحديد جنسك:",
+        "options": {
+          "male" : "ذكر",
+          "female" : "أنثى",
+          "notToSay" : "أفضل عدم الإفصاح"
+        },
+        "error": "يرجى اختيار خيار"
+      },
+      "ageGroup":{
+        "question" : "يرجى إدخال عمرك:",
+        "placeholder" : "يرجى إدخال عمرك"
+      },
       "illQuestion" : {
         "question": "هل تشعر بالمرض اليوم؟",
         "options": {
@@ -276,11 +289,26 @@
             "unsure" : "غير متأكد"
         }
       },
+      "medical" : {
+        "question": "ما هي الحالات الطبية أدناه التي تعاني منها حاليًا؟",
+        "allThatApply": "اختر كل ما ينطبق:",
+        "otherPlaceholder": "يرجى التحديد",
+        "options": {
+          "none" : "لا شيء",
+          "influenza" : "الإنفلونزا",
+          "covid" : "كوفيد",
+          "cold" : "زكام",
+          "pneumonia" : "التهاب رئوي",
+          "bronchitis" : "التهاب الشعب الهوائية",
+          "tuberculosis" : "السل",
+          "emphysema" : "انتفاخ الرئة",
+          "asthma" : "الربو",
+          "other" : "أخرى"
+        }
+      },
       "locationQuestion" : {
         "question": "ما هو موقعك الأساسي في دبي؟",
-        "note": "يمكن أن يكون هذا منزلك أو الرمز البريدي. سيتم إخفاء معلوماتك بالكامل.",
-        "zipcode" : "الرمز البريدي",
-        "placeholder":"أدخل الرمز البريدي"
+        "note": "يمكن أن يكون هذا منزلك أو الرمز البريدي. سيتم إخفاء معلوماتك بالكامل."
       }
   },
   "submit":{

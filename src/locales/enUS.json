@@ -268,6 +268,19 @@
   },
   "questionary": {
       "title" : "Questionnaire",
+      "biologicalSex":{
+        "question" : "Please specify you gender:",
+        "options": {
+          "male" : "Male",
+          "female" : "Female",
+          "notToSay" : "Prefer not to say"
+        },
+        "error": "Please select an option"
+      },
+      "ageGroup":{
+        "question" : "Please enter your age:",
+        "placeholder" : "Please enter your age"
+      },
       "illQuestion" : {
         "question": "Do you feel ill today?",
         "options": {
@@ -276,11 +289,26 @@
             "unsure" : "Unsure"
         }
       },
+      "medical" : {
+        "question": "Which of the below medical conditions do you currently have?",
+        "allThatApply": "Select all that apply:",
+        "otherPlaceholder": "Please specify",
+        "options": {
+          "none" : "None",
+          "influenza" : "Influenza",
+          "covid" : "Covid",
+          "cold" : "Cold",
+          "pneumonia" : "Pneumonia",
+          "bronchitis" : "Bronchitis",
+          "tuberculosis" : "Tuberculosis",
+          "emphysema" : "Emphysema",
+          "asthma" : "Asthma",
+          "other" : "Other"
+        }
+      },
       "locationQuestion" : {
         "question": "Where is your primary location in Dubai?",
-        "note": "This can be your home or zip code. Your information will be fully anonymized.",
-        "zipcode" : "ZIP Code",
-        "placeholder":"Enter your ZIP code"
+        "note": "This can be your home or zip code. Your information will be fully anonymized."
       }
   },
   "submit":{
