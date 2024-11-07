@@ -308,7 +308,7 @@
       },
       "locationQuestion" : {
         "question": "Where is your primary location in Dubai?",
-        "note": "This can be your home or zip code. Your information will be fully anonymized."
+        "note": "This can be your current location or current place of stay. Your information will be fully anonymized."
       }
   },
   "submit":{
