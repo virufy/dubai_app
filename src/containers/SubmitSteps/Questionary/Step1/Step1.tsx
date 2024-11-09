@@ -35,7 +35,7 @@ import {
 
 const schema = Yup.object({
   biologicalSex: Yup.string().required('biologicalSexRequired'),
-  ageGroup: Yup.string().required('ageGroupRequired').test('age-invalid', '', value => {
+  ageGroup: Yup.string().test('age-invalid', '', value => {
     let result = true;
     if (value && !value.match(/^[0-9]+$/)) {
       result = false;

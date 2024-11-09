@@ -34,7 +34,6 @@ import {
 } from '../style';
 
 const schema = Yup.object({
-  sick: Yup.string().required('sickStateRequired'),
   currentMedicalCondition: Yup.array().of(Yup.string().required()).required('currentMedicalConditionRequired').default([])
   .test('SelecteOne', 'Select one', v => !(!!v && v.length > 1 && (v.includes('none')))),
 }).defined();
@@ -110,47 +109,6 @@ const Step2 = ({
         totalSteps={metadata?.total}
         progressBar
       />
-      <QuestionText first hasNote>
-        {t('questionary:illQuestion.question')}
-      </QuestionText>
-      <Controller
-        control={control}
-        name="sick"
-        defaultValue=""
-        render={({ onChange, value }) => (
-          <OptionList
-            singleSelection
-            value={{ selected: value ? [value] : [] }}
-            onChange={v => onChange(v.selected[0])}
-            items={[
-              {
-                value: 'yes',
-                label: t('questionary:illQuestion.options.yes'),
-              },
-              {
-                value: 'no',
-                label: t('questionary:illQuestion.options.no'),
-              },
-
-              {
-                value: 'unsure',
-                label: t('questionary:illQuestion.options.unsure'),
-              },
-            ]}
-          />
-        )}
-      />
-      {/* Bottom Buttons */}
-      <ErrorMessage
-        errors={errors}
-        name="sick"
-        render={({ message }) => (
-          <TextErrorContainer>
-            <ExclamationSVG />
-            {t(`main:${message}`, 'Please select an option')}
-          </TextErrorContainer>
-        )}
-      />
 
       <QuestionText extraSpace hasNote> {t('questionary:medical.question', 'Which of the below medical conditions do you currently have?')}<br/>
         <QuestionAllApply>{t('questionary:medical.allThatApply')}</QuestionAllApply>
@@ -173,6 +131,14 @@ const Step2 = ({
                 label: t('questionary:medical.options.none'),
               },
               {
+                value: 'heavysmoker',
+                label: t('questionary:medical.options.heavysmoker'),
+              },
+              {
+                value: 'cold',
+                label: t('questionary:medical.options.cold'),
+              },
+              {
                 value: 'influenzaA',
                 label: t('questionary:medical.options.influenza'),
               },
@@ -181,33 +147,13 @@ const Step2 = ({
                 label: t('questionary:medical.options.covid'),
               },
               {
-                value: 'cold',
-                label: t('questionary:medical.options.cold'),
+                value: 'sars',
+                label: t('questionary:medical.options.sars'),
+              },
+              {
+                value: 'rsv',
+                label: t('questionary:medical.options.rsv'),
               }, 
-              {
-                value: 'pneumonia',
-                label: t('questionary:medical.options.pneumonia'),
-              },
-              {
-                value: 'bronchitis',
-                label: t('questionary:medical.options.bronchitis'),
-              },
-              {
-                value: 'tuberculosis',
-                label: t('questionary:medical.options.tuberculosis'),
-              },
-              {
-                value: 'copdEmphysema',
-                label: t('questionary:medical.options.emphysema'),
-              },
-              {
-                value: 'asthma',
-                label: t('questionary:medical.options.asthma'),
-              },
-              {
-                value: 'other',
-                label: t('questionary:medical.options.other'),
-              },
             ]}
             excludableValues={['none']}
           />

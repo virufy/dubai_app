@@ -263,7 +263,7 @@
       },
       "title": "Check The Recording",
       "subtitle": "Please check the recorded audio:",
-      "next": "Upload Audio",
+      "next": "Next",
       "retake": "Record Again"
   },
   "questionary": {
@@ -279,36 +279,25 @@
       },
       "ageGroup":{
         "question" : "Please enter your age:",
-        "placeholder" : "Please enter your age"
-      },
-      "illQuestion" : {
-        "question": "Do you feel ill today?",
-        "options": {
-            "yes" : "Yes",
-            "no" : "No",
-            "unsure" : "Unsure"
-        }
+        "placeholder" : "Optional"
       },
       "medical" : {
-        "question": "Which of the below medical conditions do you currently have?",
+        "question": "Which of the below health conditions do you currently have?",
         "allThatApply": "Select all that apply:",
         "otherPlaceholder": "Please specify",
         "options": {
           "none" : "None",
+          "heavysmoker" : "Heavy Smoker",
           "influenza" : "Influenza",
           "covid" : "Covid",
           "cold" : "Cold",
-          "pneumonia" : "Pneumonia",
-          "bronchitis" : "Bronchitis",
-          "tuberculosis" : "Tuberculosis",
-          "emphysema" : "Emphysema",
-          "asthma" : "Asthma",
-          "other" : "Other"
+          "sars" : "SARS",
+          "rsv" : "RSV"
         }
       },
       "locationQuestion" : {
         "question": "Where is your primary location in Dubai?",
-        "note": "This can be your current location or current place of stay. Your information will be fully anonymized."
+        "note": "This can be your current location or current place of stay. Your information will be fully anonymous."
       }
   },
   "submit":{

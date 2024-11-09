@@ -18,7 +18,6 @@ import { updateAction, resetStore } from 'utils/wizard';
 // Header Control
 import useHeaderContext from 'hooks/useHeaderContext';
 
-
 // Helper
 import { scrollToTop } from 'helper/scrollHelper';
 
@@ -127,7 +126,7 @@ const Step1 = (p: Wizard.StepProps) => {
           <Controller
             control={control}
             name="language"
-            defaultValue=""
+            defaultValue={languageOptions[0].value}
             render={({ onChange, value: valueController }) => (
               <WelcomeSelect
                 placeholder={t('main.selectYourLanguage', 'Select your language')}
