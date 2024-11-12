@@ -17,7 +17,6 @@ import { ImageProcessing, TextErrorContainer} from '../style';
 
 interface StructuredData {
   patientId: string;
-  sick: string;
   gender: string;
   age: number;
   conditions: string[]; 
@@ -51,7 +50,6 @@ const Sending = (p: Wizard.StepProps) => {
         patientId: state['submit-steps']?.patientId,
         gender: state['submit-steps']?.biologicalSex,
         age: state['submit-steps']?.ageGroup,
-        sick: state['submit-steps']?.sick,
         conditions: state['submit-steps']?.currentMedicalCondition,
         latitude: state['submit-steps']?.location['lat'],
         longitude: state['submit-steps']?.location['lng'],
