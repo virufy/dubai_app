@@ -139,7 +139,7 @@ const Step2 = ({
                 label: t('questionary:medical.options.cold'),
               },
               {
-                value: 'influenzaA',
+                value: 'influenza',
                 label: t('questionary:medical.options.influenza'),
               },
               {
