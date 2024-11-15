@@ -315,13 +315,13 @@
           "allThatApply": "Select all that apply:",
           "otherPlaceholder": "Please specify",
           "options": {
-            "none" : "None",
-            "heavysmoker" : "Heavy Smoker",
-            "influenza" : "Influenza",
-            "covid" : "Covid",
-            "cold" : "Cold",
-            "sars" : "SARS",
-            "rsv" : "RSV"
+            "none": "None 🟢",
+            "heavysmoker": "Heavy Smoker 🚬",
+            "influenza": "Influenza 🤒",
+            "covid": "Covid 😷",
+            "cold": "Cold 🤧",
+            "sars": "SARS 🦠",
+            "rsv": "RSV 🏥"
           }
         },
         "locationQuestion" : {
