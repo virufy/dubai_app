@@ -86,6 +86,21 @@ const ThankYou = (p: Wizard.StepProps) => {
         </Trans>
       </BeforeSubmitText>
 
+      <Card>
+        <CardTitle>{t('thankyou:DashboardCard.title')}</CardTitle>
+        <CardDescription>{t('thankyou:DashboardCard.description')}</CardDescription>
+        <CardLink href={'https://main.dlxgw9lyau1qm.amplifyapp.com/'}>{t('thankyou:DashboardCard.button')}</CardLink>
+      </Card>
+
+      <Card>
+        <CardTitle>{t('thankyou:DevBio.title')}</CardTitle>
+        <CardDescription>{t('thankyou:DevBio.description')}</CardDescription>
+        <CardDescription>{t('thankyou:DevBio.connect')}</CardDescription>
+        <CardLink href={'https://www.linkedin.com/in/ryuma521/'}>{t('thankyou:DevBio.button1')}</CardLink>
+        <CardLink href={'mailto:ryuma.nakahata@virufy.org'}>{t('thankyou:DevBio.button2')}</CardLink>
+      </Card>
+
+
       <Title>{t('thankyou:stayInTouch', 'Stay in touch!')}</Title>
 
       <Card>

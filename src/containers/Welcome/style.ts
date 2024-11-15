@@ -6,6 +6,7 @@ import { ReactComponent as AboutUs } from 'assets/images/about-us.svg';
 import { ReactComponent as LogoSplash } from 'assets/virufyLogoWhiteBox.svg';
 import { ReactComponent as ChevronRightSVG } from 'assets/icons/chevronRight.svg';
 import { ReactComponent as checkCircleSVG } from 'assets/icons/checkCircle.svg';
+import { ReactComponent as chevronSVG } from 'assets/icons/chevron.svg';
 
 interface WelcomeTitleProps {
   fontSize?: number;
@@ -656,6 +657,19 @@ export const ChevronRight = styled(ChevronRightSVG)`
   height: 12.5px;
   margin-right: 5px;
   cursor: pointer;
+`;
+
+export const ChevronSVG = styled(chevronSVG)`
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+`;
+
+export const UpChevronSVG = styled(chevronSVG)`
+  transform: rotate(90deg);
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
 `;
 
 export const CheckCircle = styled(checkCircleSVG)`

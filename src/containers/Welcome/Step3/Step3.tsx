@@ -40,7 +40,7 @@ import {
   InnerContainerShapeDown,
   WelcomeContent,
   WelcomeStyledFormAlternative,
-  CheckboxTitle,
+  CheckboxTitle, ChevronSVG, UpChevronSVG
 } from '../style';
 
 const schema = Yup.object().shape({
@@ -58,7 +58,7 @@ const Step3 = (p: Wizard.StepProps) => {
   });
   const [activeStep, setActiveStep] = React.useState(true);
   const { setType, setDoGoBack, setSubtitle } = useHeaderContext();
-
+  const [showConsentForm, setShowConsentForm] = React.useState(false);
   const { state, action } = useStateMachine(updateAction(p.storeKey));
 
   const store = state?.[p.storeKey];
@@ -112,15 +112,58 @@ const Step3 = (p: Wizard.StepProps) => {
     <WelcomeStyledFormAlternative>
       <ContainerShapeDown isMobile={isMobile}>
         <InnerContainerShapeDown>
-          <BlackText>
-            <Trans i18nKey="consent:paragraph1">
-            Virufy cares about your privacy and is advised by licensed data privacy experts. The information and recordings you provide will only be used for the purposes described in our privacy policy and consent form. Please read the consent form:
-            </Trans>
-          </BlackText>
-          
         </InnerContainerShapeDown>
       </ContainerShapeDown>
-      <WelcomeContent mt={10}>
+      <WelcomeContent mt={0}>
+        <BlackText>
+          <Trans i18nKey="consent:paragraph1" components={{ 1: <a href="https://drive.google.com/file/d/1EB_9q8nSxvJXWMtCfxCWmisM-n03TJYz/view" target='blank'>Privacy Policy</a> }}>
+          Virufy cares about your privacy and is advised by licensed data privacy experts. The information and recordings you provide will only be used for the purposes described in our privacy policy and consent form. Please read the consent form:
+          </Trans>
+        </BlackText>
+        <BlackText>
+          <span style={{ textDecoration: "underline" }} onClick={() => {
+            if(showConsentForm) setShowConsentForm(false);
+            else setShowConsentForm(true);
+          }}>
+            <Trans i18nKey="consent:read">
+              consent form
+            </Trans>
+            {!showConsentForm && <UpChevronSVG/>}
+            {showConsentForm && <ChevronSVG/>}
+          </span>
+        </BlackText>
+        {showConsentForm && 
+        <BlackText>
+            <Trans i18nKey="consent:form1"/>
+            <Trans i18nKey="consent:form2"/>
+            <Trans i18nKey="consent:form3"/>
+            <Trans i18nKey="consent:form4"/>
+            <Trans i18nKey="consent:form5"/>
+            <Trans i18nKey="consent:form6"/>
+            <Trans i18nKey="consent:form7"/>
+            <Trans i18nKey="consent:form8"/>
+            <Trans i18nKey="consent:form9"/>
+            <Trans i18nKey="consent:form10"/>
+            <Trans i18nKey="consent:form11"/>
+            <Trans i18nKey="consent:form12"/>
+            <Trans i18nKey="consent:form13"/>
+            <Trans i18nKey="consent:form14" components={{ul: <ul />, li: <li />}}/>
+            <Trans i18nKey="consent:form15" components={{ul: <ul />, li: <li />}}/>
+            <Trans i18nKey="consent:form16"/>
+            <Trans i18nKey="consent:form17" components={{ul: <ul />, li: <li />}}/>
+            <Trans i18nKey="consent:form18" components={{ul: <ul />, li: <li />}}/>
+            <Trans i18nKey="consent:form19"/>
+            <Trans i18nKey="consent:form20" components={{ul: <ul />, li: <li />}}/>
+            <Trans i18nKey="consent:form21"/>
+            <Trans i18nKey="consent:form22"/>
+            <Trans i18nKey="consent:form23"/>
+            <Trans i18nKey="consent:form24"/>
+            <Trans i18nKey="consent:form25"/>
+            <Trans i18nKey="consent:form26"/>
+            <Trans i18nKey="consent:form27"/>
+            <Trans i18nKey="consent:form28"/>
+            <Trans i18nKey="consent:form29"/>
+        </BlackText>}
         <BlackText>
           <Trans i18nKey="consent:paragraph3">
             By checking the below boxes, you are granting your explicit, freely given, and informed consent to Virufy to
@@ -161,8 +204,9 @@ const Step3 = (p: Wizard.StepProps) => {
             <Checkbox
               id="PolicyTerms"
               label={(
-                <Trans i18nKey="consent:agree">
-                  I agree to the terms of the Virufy Privacy Policy.                </Trans>
+                <Trans i18nKey="consent:agree" components={{ 1: <a href="https://drive.google.com/file/d/1EB_9q8nSxvJXWMtCfxCWmisM-n03TJYz/view" target='blank'>Privacy Policy</a> }}>
+                  I agree to the terms of the Virufy Privacy Policy.                
+                </Trans>
               )}
               name="agreedPolicyTerms"
               onChange={e => onChange(e.target.checked)}
