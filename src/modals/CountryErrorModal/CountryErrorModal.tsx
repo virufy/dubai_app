@@ -43,7 +43,7 @@ const CountryErrorModal = React.memo(({
       <ModalBody className="ModalBody">
         <ModalTitle>{modalTitle}</ModalTitle>
         <ModalContent>{children}</ModalContent>
-        <ModalLink href="https://virufy.org">
+        <ModalLink href="https://virufy.org/en/">
           {t('main:visitWebsite', 'Visit our website')}
         </ModalLink>
       </ModalBody>
