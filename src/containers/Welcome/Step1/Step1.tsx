@@ -140,7 +140,7 @@ const Step1 = (p: Wizard.StepProps) => {
             )}
           />
 
-          <BlackText>
+          <BlackText style={{marginTop:'60px'}}>
             <Trans i18nKey="main:servicePurposeText">
               {/* eslint-disable-next-line max-len */}
               <p style={{textAlign:'left'}}><strong>Please note:</strong> This form is for data collection only. It will not predict or diagnose any disease, disorder, or other health condition. Virufy is conducting research and will use the information you provide for research. The Virufy app doesn’t replace a doctor. Remember that it is your responsibility to seek medical advice from your doctor. 
@@ -148,14 +148,14 @@ const Step1 = (p: Wizard.StepProps) => {
             </Trans>
           </BlackText>
 
-          <BlackText $textCenter>
+          {/* <BlackText $textCenter>
             <Trans i18nKey="main:terms">
               <strong>
               By proceeding you accept the <br/>
               terms of our Privacy Policy
               </strong>
             </Trans>
-          </BlackText>
+          </BlackText> */}
 
           {
             activeStep && (
