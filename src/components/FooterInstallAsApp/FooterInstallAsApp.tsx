@@ -31,7 +31,7 @@ const FooterInstallAsApp = () => {
       }
     }
   }, [handlePrompt, setIsInstalled]);
-  if (location.pathname !== '/virumap/welcome') return null;
+  if (location.pathname !== '/dubai-app/welcome') return null;
 
   return (
     <>

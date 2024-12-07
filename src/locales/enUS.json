@@ -325,7 +325,7 @@
           }
         },
         "locationQuestion" : {
-          "question": "Where is your primary location in Dubai? 📍",
+          "question": "Where is your primary location? 📍",
           "note": "This can be your current location or current place of stay. Your information will be fully anonymous."
         }
     },

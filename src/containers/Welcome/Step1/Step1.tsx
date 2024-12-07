@@ -32,7 +32,7 @@ import {
   LogoWhiteBG,
 } from '../style';
 
-const languageList = ['English','Arabic']
+const languageList = ['English', 'Japanese', 'Arabic']
 const languageOptions = languageList.map(language => ({ label: language, value: language }));
 
 const schema = Yup.object().shape({
@@ -102,8 +102,10 @@ const Step1 = (p: Wizard.StepProps) => {
   useEffect(() => {
     if(lang === 'Arabic')
       i18n.changeLanguage('ar');
-    else
+    else if(lang === "English")
       i18n.changeLanguage('enUS');
+    else
+      i18n.changeLanguage('ja');
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [i18n, lang]);
 

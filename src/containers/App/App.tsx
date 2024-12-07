@@ -38,14 +38,14 @@ const App = () => {
         <Header />
         <FullWidth style={{ flex: 1 }}>
           <Switch>
-            <Route path="/virumap/welcome">
+            <Route path="/dubai-app/welcome">
               <AsyncLoad key="Welcome" container="Welcome" />
             </Route>
-            <Route path="/virumap/submit-steps">
+            <Route path="/dubai-app/submit-steps">
               <AsyncLoad key="SubmitSteps" container="SubmitSteps" />
             </Route>
-            <Redirect exact from="/" to={{ pathname: '/virumap/welcome', search }} />
-            <Redirect exact from="/virumap" to={{ pathname: '/virumap/welcome', search }} />
+            <Redirect exact from="/" to={{ pathname: '/dubai-app/welcome', search }} />
+            <Redirect exact from="/dubai-app" to={{ pathname: '/dubai-app/welcome', search }} />
             <Route>
               <div>404 Page</div>
             </Route>
